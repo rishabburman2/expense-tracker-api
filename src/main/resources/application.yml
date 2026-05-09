@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: expensetracker
+  datasource:
+    url: jdbc:postgresql://localhost:5433/expensetracker
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update                      # Automatically updates DB schema using entities
+    show-sql: true                          # Prints sql queries in console
+    properties:
+      hibernate:
+        format-sql: true                    # Makes sql pretty printed
+
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer: ERROR
+
+# logging:
+#   level:
+#     org.springframework.security: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 86400000
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer: ERROR

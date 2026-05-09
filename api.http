@@ -1,0 +1,115 @@
+### Register a new user
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "Rishabh Burman",
+    "email": "rishabh@gmail.com",
+    "password": "password123"
+}
+
+### Login
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "rishabh@gmail.com",
+    "password": "password123"
+}
+
+### Try accessing protected endpoint without token (should get 401/403)
+GET http://localhost:8080/api/expenses
+
+### Create an expense
+POST http://localhost:8080/api/expenses
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyaXNoYWJoQGdtYWlsLmNvbSIsImlhdCI6MTc3ODE1NDg2OCwiZXhwIjoxNzc4MjQxMjY4fQ.qK2iqfP1CT8NjPfxabKlWUPCGZbSj4LMG9M2lHDqn5v_ok5-UZ8-OIjBJ6vuB8aYXrUU5p1WoBBTQF51oeRbew
+
+{
+    "title": "Swiggy dinner",
+    "amount": 450.00,
+    "category": "FOOD",
+    "expenseDate": "2026-05-07",
+    "note": "Biryani"
+}
+
+### Get all expenses
+GET http://localhost:8080/api/expenses
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyaXNoYWJoQGdtYWlsLmNvbSIsImlhdCI6MTc3ODE1NDg2OCwiZXhwIjoxNzc4MjQxMjY4fQ.qK2iqfP1CT8NjPfxabKlWUPCGZbSj4LMG9M2lHDqn5v_ok5-UZ8-OIjBJ6vuB8aYXrUU5p1WoBBTQF51oeRbew
+
+### Get all expenses
+GET http://localhost:8080/api/expenses
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyaXNoYWJoQGdtYWlsLmNvbSIsImlhdCI6MTc3ODE1NDg2OCwiZXhwIjoxNzc4MjQxMjY4fQ.qK2iqfP1CT8NjPfxabKlWUPCGZbSj4LMG9M2lHDqn5v_ok5-UZ8-OIjBJ6vuB8aYXrUU5p1WoBBTQF51oeRbew
+
+### Get expense by id
+GET http://localhost:8080/api/expenses/44223346-f4d9-43a6-8bc4-cad8bdab0ef4
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyaXNoYWJoQGdtYWlsLmNvbSIsImlhdCI6MTc3ODE1NDg2OCwiZXhwIjoxNzc4MjQxMjY4fQ.qK2iqfP1CT8NjPfxabKlWUPCGZbSj4LMG9M2lHDqn5v_ok5-UZ8-OIjBJ6vuB8aYXrUU5p1WoBBTQF51oeRbew
+
+### Update expense
+PUT http://localhost:8080/api/expenses/44223346-f4d9-43a6-8bc4-cad8bdab0ef4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyaXNoYWJoQGdtYWlsLmNvbSIsImlhdCI6MTc3ODE1NDg2OCwiZXhwIjoxNzc4MjQxMjY4fQ.qK2iqfP1CT8NjPfxabKlWUPCGZbSj4LMG9M2lHDqn5v_ok5-UZ8-OIjBJ6vuB8aYXrUU5p1WoBBTQF51oeRbew
+
+{
+    "title": "Swiggy dinner updated",
+    "amount": 500.00,
+    "category": "FOOD",
+    "expenseDate": "2026-05-07",
+    "note": "Biryani + dessert"
+}
+
+### Delete expense
+DELETE http://localhost:8080/api/expenses/44223346-f4d9-43a6-8bc4-cad8bdab0ef4
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyaXNoYWJoQGdtYWlsLmNvbSIsImlhdCI6MTc3ODE1NDg2OCwiZXhwIjoxNzc4MjQxMjY4fQ.qK2iqfP1CT8NjPfxabKlWUPCGZbSj4LMG9M2lHDqn5v_ok5-UZ8-OIjBJ6vuB8aYXrUU5p1WoBBTQF51oeRbew
+
+### Create a travel expense
+POST http://localhost:8080/api/expenses
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyaXNoYWJoQGdtYWlsLmNvbSIsImlhdCI6MTc3ODE1NDg2OCwiZXhwIjoxNzc4MjQxMjY4fQ.qK2iqfP1CT8NjPfxabKlWUPCGZbSj4LMG9M2lHDqn5v_ok5-UZ8-OIjBJ6vuB8aYXrUU5p1WoBBTQF51oeRbew
+
+{
+    "title": "Uber to airport",
+    "amount": 850.00,
+    "category": "TRAVEL",
+    "expenseDate": "2026-05-07",
+    "note": "Early morning cab"
+}
+
+### Get monthly report
+GET http://localhost:8080/api/reports/monthly
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyaXNoYWJoQGdtYWlsLmNvbSIsImlhdCI6MTc3ODE1NDg2OCwiZXhwIjoxNzc4MjQxMjY4fQ.qK2iqfP1CT8NjPfxabKlWUPCGZbSj4LMG9M2lHDqn5v_ok5-UZ8-OIjBJ6vuB8aYXrUU5p1WoBBTQF51oeRbew
+
+### Get category report
+GET http://localhost:8080/api/reports/category
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyaXNoYWJoQGdtYWlsLmNvbSIsImlhdCI6MTc3ODE1NDg2OCwiZXhwIjoxNzc4MjQxMjY4fQ.qK2iqfP1CT8NjPfxabKlWUPCGZbSj4LMG9M2lHDqn5v_ok5-UZ8-OIjBJ6vuB8aYXrUU5p1WoBBTQF51oeRbew
+
+
+### Try registering with same email (should get 400 - duplicate email)
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "Rishabh Burman",
+    "email": "rishabh@gmail.com",
+    "password": "password123"
+}
+
+### Try login with wrong password (should get 401)
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "rishabh@gmail.com",
+    "password": "wrongpassword"
+}
+
+### Try registering with invalid data (should get 400 with field errors)
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "",
+    "email": "notanemail",
+    "password": "abc"
+}
+
