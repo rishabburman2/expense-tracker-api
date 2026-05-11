@@ -113,3 +113,22 @@ Content-Type: application/json
     "password": "abc"
 }
 
+### Register on production
+POST https://expense-tracker-api-qcdw.onrender.com/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "Rishabh Burman",
+    "email": "rishabh@gmail.com",
+    "password": "password123"
+}
+
+### Login on production
+POST https://expense-tracker-api-qcdw.onrender.com/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "rishabh@gmail.com",
+    "password": "password123"
+}
+
